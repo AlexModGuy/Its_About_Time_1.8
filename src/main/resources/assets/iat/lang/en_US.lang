@@ -1,0 +1,19 @@
+MISC
+itemGroup.iat.items=It's About Time: Items
+itemGroup.iat.blocks=It's About Time: Blocks
+itemGroup.iat.spawneggs=It's About Time: Spawn Eggs
+
+BLOCK
+tile.iat.sunstone.name=Sunstone
+tile.iat.ore_gem.name=Tempus Ore
+tile.iat.ancienttablet.name=Ancient Tablet
+tile.iat.singularitycrystal.name=Singularity Crystal
+ITEM
+item.iat.gem_tempus.name=Tempus Gemstone
+item.iat.singularitycrystal.name=Singularity Crystal
+item.iat.spawnEgg.name=Spawn 
+ENTITY
+entity.iat.watcher.name=Watcher
+entity.iat.redlichia.name=Redlichia
+entity.iat.anomalocaris.name=Anomalocaris
+CHAT

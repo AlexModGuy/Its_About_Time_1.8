@@ -1,0 +1,4 @@
+{
+    "watcher_living": {"category": "neutral","sounds": ["watcher_living_0", "watcher_living_1", "watcher_living_2", "watcher_living_3"]},
+    "watcher_hurt": {"category": "neutral","sounds": ["watcher_hurt_0", "watcher_hurt_1"]}
+}

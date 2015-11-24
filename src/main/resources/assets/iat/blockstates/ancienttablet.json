@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "inventory": { "model": "iat:ancienttablet" },
+        "facing=north": { "model": "iat:ancienttablet" },
+        "facing=south": { "model": "iat:ancienttablet", "y": 180 },
+        "facing=west":  { "model": "iat:ancienttablet", "y": 270 },
+        "facing=east":  { "model": "iat:ancienttablet", "y": 90 }
+    }
+}

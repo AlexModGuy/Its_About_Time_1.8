@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "#texture": "iat:blocks/singularitycrystal"
+        },
+        "model": "iat:singularitycrystal.b3d"
+     },
+    "variants": {
+        "normal": [{ }],
+        "inventory": [{
+            "transform": "forge:default-block"
+        }],
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "textures": {
+        "0": "iat:blocks/tablet",
+        "1": "iat:blocks/sunstone_base",
+        "particle": "iat:blocks/sunstone_base"
+    },
+    "elements": [
+        {
+            "name": "tabletMain",
+            "from": [ 4.0, 0.0, 7.0 ], 
+            "to": [ 12.0, 12.0, 9.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 4.0, 4.0, 12.0, 16.0 ] },
+                "east": { "texture": "#1", "uv": [ 0.0, 4.0, 2.0, 16.0 ] },
+                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 8.0, 12.0 ] },
+                "west": { "texture": "#1", "uv": [ 0.0, 0.0, 2.0, 12.0 ] },
+                "up": { "texture": "#1", "uv": [ 2.0, 0.0, 10.0, 2.0 ] },
+                "down": { "texture": "#1", "uv": [ 2.0, 0.0, 10.0, 2.0 ] }
+            }
+        },
+        {
+            "name": "tablettop",
+            "from": [ 4.0, 12.0, 7.0 ], 
+            "to": [ 10.0, 13.0, 9.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 6.0, 3.0, 12.0, 4.0 ] },
+                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 2.0, 1.0 ] },
+                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 6.0, 1.0 ] },
+                "west": { "texture": "#1", "uv": [ 8.0, 0.0, 10.0, 1.0 ] },
+                "up": { "texture": "#1", "uv": [ 9.0, 0.0, 15.0, 2.0 ] },
+                "down": { "texture": "#1", "uv": [ 0.0, 0.0, 6.0, 2.0 ] }
+            }
+        },
+        {
+            "name": "tabletside",
+            "from": [ 3.0, 0.0, 7.0 ], 
+            "to": [ 4.0, 3.0, 9.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 12.0, 13.0, 13.0, 16.0 ] },
+                "east": { "texture": "#1", "uv": [ 0.0, 0.0, 2.0, 3.0 ] },
+                "south": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 3.0 ] },
+                "west": { "texture": "#1", "uv": [ 5.0, 0.0, 7.0, 3.0 ] },
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+                "down": { "texture": "#1", "uv": [ 0.0, 0.0, 1.0, 2.0 ] }
+            }
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "iat:ore_gem" }
+    }
+}

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "iat",
+  "name": "It's About Time!",
+  "description": "Travel through time!",
+  "version": "0.2",
+  "mcversion": "1.8.X",
+  "url": "http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/2432865-download-its-about-time-dinosaurs-time-travel",
+  "updateUrl": "",
+  "authorList": ["Alexthe666"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
