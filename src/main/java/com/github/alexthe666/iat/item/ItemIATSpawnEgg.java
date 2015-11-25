@@ -1,15 +1,14 @@
 package com.github.alexthe666.iat.item;
 
 import java.util.Iterator;
-
-import com.github.alexthe666.iat.ItsAboutTime;
-import com.github.alexthe666.iat.entity.IATEntityList;
+import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
@@ -19,6 +18,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.github.alexthe666.iat.IATConfig;
+import com.github.alexthe666.iat.ItsAboutTime;
+import com.github.alexthe666.iat.entity.IATEntityList;
 
 /**
  * @author Ry_dog101
@@ -71,6 +74,13 @@ public class ItemIATSpawnEgg extends ItemMonsterPlacer {
         return s;
     }
 
+    @SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer playerIn, List tooltip, boolean advanced) {
+    	if(IATConfig.vanillaSpawnEggs){
+    		tooltip.add(StatCollector.translateToLocal("tooltip.vanillaSpawnEggs"));
+    	}
+    }
+    
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int i) {
         IATEntityList.Entities entityegginfo = IATEntityList.entities.get(Integer.valueOf(stack.getItemDamage()));

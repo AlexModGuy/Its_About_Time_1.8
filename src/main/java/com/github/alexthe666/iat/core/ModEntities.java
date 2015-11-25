@@ -1,15 +1,13 @@
 package com.github.alexthe666.iat.core;
 
-import java.util.Random;
-
 import net.minecraft.entity.EntityList;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import com.github.alexthe666.iat.IATConfig;
 import com.github.alexthe666.iat.ItsAboutTime;
 import com.github.alexthe666.iat.entity.IATEntityList;
 import com.github.alexthe666.iat.entity.mob.EntityAnomalocaris;
 import com.github.alexthe666.iat.entity.mob.EntityRedlichia;
-import com.github.alexthe666.iat.entity.mob.EntityWatcher;
 
 
 public class ModEntities{
@@ -25,8 +23,11 @@ public class ModEntities{
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityId);
 		EntityRegistry.registerModEntity(entityClass, name, entityId, ItsAboutTime.instance, 64, 1, true);
 		IATEntityList.addToList(entityClass, name, entityId, mainColor, subColor, ModItems.spawnegg);
+		if(IATConfig.vanillaSpawnEggs){
+			EntityList.entityEggs.put(Integer.valueOf(entityId), new EntityList.EntityEggInfo(entityId, mainColor, subColor));
+		}
 	}
-	
+
 	public static void registerUnspawnable(Class entityClass, String name){
 		int entityId = EntityRegistry.findGlobalUniqueEntityId();
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityId);

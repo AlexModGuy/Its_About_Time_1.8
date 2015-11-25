@@ -1,11 +1,14 @@
 package com.github.alexthe666.iat;
 
+import net.ilexiconn.llibrary.common.config.ConfigHelper;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -20,16 +23,23 @@ import com.github.alexthe666.iat.world.WorldGenMain;
 public class ItsAboutTime
 {
     public static final String MODID = "iat";
-    public static final String VERSION = "0.2";
+    public static final String VERSION = "0.1.1";
 	@Instance(value = MODID)
 	public static ItsAboutTime instance;
 	public static SimpleNetworkWrapper channel;
 	@SidedProxy(clientSide = "com.github.alexthe666.iat.ClientProxy", serverSide = "com.github.alexthe666.iat.CommonProxy")
 	public static CommonProxy proxy;
+    public Configuration config;
 	public static CreativeTabs tab_items;
 	public static CreativeTabs tab_blocks;
 	public static CreativeTabs tab_spawneggs;
 
+	@Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+        ConfigHelper.registerConfigHandler(MODID, event.getSuggestedConfigurationFile(), new IATConfig());
+    }
+	
     @EventHandler
     public void init(FMLInitializationEvent event)
     {

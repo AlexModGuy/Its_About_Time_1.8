@@ -17,3 +17,4 @@ entity.iat.watcher.name=Watcher
 entity.iat.redlichia.name=Redlichia
 entity.iat.anomalocaris.name=Anomalocaris
 CHAT
+tooltip.vanillaSpawnEggs=If these do not work, use Vanilla Spawn Eggs.
