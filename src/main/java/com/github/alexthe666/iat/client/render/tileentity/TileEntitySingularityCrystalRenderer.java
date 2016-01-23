@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
@@ -19,11 +20,17 @@ import com.github.alexthe666.iat.tileentity.TileEntitySingularityCrystal;
 
 public class TileEntitySingularityCrystalRenderer extends TileEntitySpecialRenderer {
 
+	private static final ResourceLocation enderDragonCrystalBeamTextures = new ResourceLocation("textures/entity/endercrystal/endercrystal_beam.png");
+
 	@Override
 	public void renderTileEntityAt(TileEntity entity, double x, double y, double z, float f, int f1) {
 		IModelCustom model = AdvancedModelLoader.loadModel(new ResourceLocation("iat:models/singularitycrystal/singularitycrystal.obj"));
 		TileEntitySingularityCrystal crystal = (TileEntitySingularityCrystal)entity;
 		float bob = (float) (Math.sin(crystal.ticksExisted * 0.05F) * 1 * 0.1F - 1 * 0.1F);
+
+		GL11.glPushMatrix();
+		
+		GL11.glPopMatrix();
 
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F);
@@ -33,7 +40,6 @@ public class TileEntitySingularityCrystalRenderer extends TileEntitySpecialRende
 		GL11.glTranslatef((float)0F, (float)1F, (float)2F);
 		doDragonEffect();
 		GL11.glPopMatrix();
-		
 		GL11.glPushMatrix();
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F);
@@ -44,19 +50,19 @@ public class TileEntitySingularityCrystalRenderer extends TileEntitySpecialRende
 		this.bindTexture(new ResourceLocation("iat:models/singularitycrystal/singularitycrystal.png"));
 		GL11.glPushMatrix();
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-        GlStateManager.enableNormalize();
-        GlStateManager.enableBlend();
-        GlStateManager.blendFunc(770, 771);
-        GlStateManager.disableCull();
-        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240f, 240f);
+		GlStateManager.enableNormalize();
+		GlStateManager.enableBlend();
+		GlStateManager.blendFunc(770, 771);
+		GlStateManager.disableCull();
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240f, 240f);
 		model.renderAll();
-        GlStateManager.enableCull();
-        GlStateManager.disableBlend();
-        GlStateManager.disableNormalize();
-        GL11.glPopMatrix();
+		GlStateManager.enableCull();
+		GlStateManager.disableBlend();
+		GlStateManager.disableNormalize();
 		GL11.glPopMatrix();
-		
-		
+		GL11.glPopMatrix();
+
+
 	}
 	/* GL11.glEnable(GL11.GL_NORMALIZE);
             GL11.glEnable(GL11.GL_BLEND);
@@ -92,16 +98,14 @@ public class TileEntitySingularityCrystalRenderer extends TileEntitySpecialRende
 			GlStateManager.rotate(random.nextFloat() * 360.0F, 1.0F, 0.0F, 0.0F);
 			GlStateManager.rotate(random.nextFloat() * 360.0F, 0.0F, 1.0F, 0.0F);
 			GlStateManager.rotate(random.nextFloat() * 360.0F + f7 * 90.0F, 0.0F, 0.0F, 1.0F);
-			worldrenderer.startDrawing(6);
+            worldrenderer.begin(6, DefaultVertexFormats.POSITION_COLOR);
 			float f9 = random.nextFloat() * 2.0F + f8 * 10.0F;
 			float f10 = random.nextFloat() * 2.0F + 1.0F + f8 * 2.0F;
-			worldrenderer.setColorRGBA_I(16777215, (int)(255.0F * (1.0F - f8)));
-			worldrenderer.addVertex(0.0D, 0.0D, 0.0D);
-			worldrenderer.setColorRGBA_I(0, 0);
-			worldrenderer.addVertex(-0.866D * (double)f10, (double)f9, (double)(-0.5F * f10));
-			worldrenderer.addVertex(0.866D * (double)f10, (double)f9, (double)(-0.5F * f10));
-			worldrenderer.addVertex(0.0D, (double)f9, (double)(1.0F * f10));
-			worldrenderer.addVertex(-0.866D * (double)f10, (double)f9, (double)(-0.5F * f10));
+			worldrenderer.pos(0.0D, 0.0D, 0.0D).color(255, 255, 255, (int)(255.0F * (1.0F - f8))).endVertex();
+			worldrenderer.pos(-0.866D * (double)f10, (double)f9, (double)(-0.5F * f10)).color(0, 0, 0, 0).endVertex();
+			worldrenderer.pos(0.866D * (double)f10, (double)f9, (double)(-0.5F * f10)).color(0, 0, 0, 0).endVertex();
+			worldrenderer.pos(0.0D, (double)f9, (double)(1.0F * f10)).color(0, 0, 0, 0).endVertex();
+			worldrenderer.pos(-0.866D * (double)f10, (double)f9, (double)(-0.5F * f10)).color(0, 0, 0, 0).endVertex();
 			tessellator.draw();
 		}
 
@@ -115,4 +119,5 @@ public class TileEntitySingularityCrystalRenderer extends TileEntitySpecialRende
 		GlStateManager.enableAlpha();
 		RenderHelper.enableStandardItemLighting();
 	}
+
 }

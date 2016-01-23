@@ -113,9 +113,6 @@ public class EntityAIWaterFindTarget extends EntityAIBase
 				}
 				if (mob.worldObj.getBlockState(blockpos1).getBlock().getMaterial() == Material.water)
 				{
-					System.out.println((double)blockpos1.getX());
-					System.out.println((double)blockpos1.getY());
-					System.out.println((double)blockpos1.getZ());
 					return new Vec3((double)blockpos1.getX(), (double)blockpos1.getY(), (double)blockpos1.getZ());
 				}
 			}

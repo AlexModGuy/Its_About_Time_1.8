@@ -26,7 +26,7 @@ public class Face
             faceNormal = this.calculateFaceNormal();
         }
 
-        tessellator.getWorldRenderer().setNormal(faceNormal.x, faceNormal.y, faceNormal.z);
+        tessellator.getWorldRenderer().normal(faceNormal.x, faceNormal.y, faceNormal.z);
 
         float averageU = 0F;
         float averageV = 0F;
@@ -62,11 +62,12 @@ public class Face
                     offsetV = -offsetV;
                 }
 
-                tessellator.getWorldRenderer().addVertexWithUV(vertices[i].x, vertices[i].y, vertices[i].z, textureCoordinates[i].u + offsetU, textureCoordinates[i].v + offsetV);
+                tessellator.getWorldRenderer().pos(vertices[i].x, vertices[i].y, vertices[i].z).tex(textureCoordinates[i].u + offsetU, textureCoordinates[i].v + offsetV).endVertex();
+
             }
             else
             {
-                tessellator.getWorldRenderer().addVertex(vertices[i].x, vertices[i].y, vertices[i].z);
+                tessellator.getWorldRenderer().pos(vertices[i].x, vertices[i].y, vertices[i].z).endVertex();
             }
         }
     }

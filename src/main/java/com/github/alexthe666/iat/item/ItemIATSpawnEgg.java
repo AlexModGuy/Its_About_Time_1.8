@@ -53,7 +53,6 @@ public class ItemIATSpawnEgg extends ItemMonsterPlacer {
                     entity.setLocationAndAngles(x, y, z, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);
                     entityliving.rotationYawHead = entityliving.rotationYaw;
                     entityliving.renderYawOffset = entityliving.rotationYaw;
-                    entityliving.func_180482_a(null, null);
                     world.spawnEntityInWorld(entity);
                     entityliving.playLivingSound();
                 }

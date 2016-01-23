@@ -2,7 +2,6 @@ package com.github.alexthe666.iat.entity.mob;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.entity.ai.EntityAIWander;
@@ -17,11 +16,11 @@ public class EntityRedlichia extends EntityIATAquatic{
 		super(worldIn);
 		this.setSize(0.5F, 0.4F);
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityLiving.class, 8.0F));
-		this.tasks.addTask(9, new EntityAIAvoidEntity(this, new Predicate()
+		this.tasks.addTask(9, new EntityAIAvoidEntity(this, EntityAnomalocaris.class, new Predicate()
 		{
 			public boolean check(Entity entity)
 			{
-				return entity instanceof EntityLivingBase;
+				return entity instanceof EntityAnomalocaris;
 			}
 			public boolean apply(Object entity)
 			{

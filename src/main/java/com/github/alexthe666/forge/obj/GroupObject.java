@@ -2,7 +2,10 @@ package com.github.alexthe666.forge.obj;
 
 import java.util.ArrayList;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -34,7 +37,7 @@ public class GroupObject
         if (faces.size() > 0)
         {
             Tessellator tessellator = Tessellator.getInstance();
-            tessellator.getWorldRenderer().startDrawing(glDrawingMode);
+            tessellator.getWorldRenderer().begin(4, DefaultVertexFormats.POSITION_TEX);
             render(tessellator);
             tessellator.draw();
         }
